@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.EngineMapper">
+
+<!--添加工程-->
+    <insert id="addEngine" parameterType="com.example.demo.model.Engine">
+        insert into engine (gcmc,dz,isdelete) values(#{gcmc},#{dz},#{delete})
+    </insert>
+
+
+<!--删除工程-->
+    <update id="deleteEngine" parameterType="int">
+        update engine set isdelete = 1 where id = #{id}
+    </update>
+
+<!--    修改工程-->
+    <update id="updateEngine" parameterType="com.example.demo.model.Engine">
+        update engine set gcmc = #{gcmc},dz = #{dz} where id = #{id}
+    </update>
+
+<!--    查询工程-->
+    <select id="selectEngine" resultType="com.example.demo.model.Engine">
+        select * from engine where isdelete = 0
+    </select>
+
+
+</mapper>
